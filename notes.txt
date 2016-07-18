@@ -1,0 +1,5 @@
+This folder contains code from the O'Reilly book Fluent Python, 
+by Luciano Ramalho, along with my modifications.
+
+NOTE: the book uses python 3.4, so use the conda environment 'python3'.
+
