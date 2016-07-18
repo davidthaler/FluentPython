@@ -3,7 +3,7 @@ import collections
 Card = collections.namedtuple('Card', ['rank', 'suit'])
 
 class FrenchDeck(object):
-    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
+    ranks = list('23456789') + ['10'] + list('JQKA')
     suits = 'spades diamonds clubs hearts'.split()
 
     def __init__(self):
@@ -28,6 +28,8 @@ class FrenchDeck(object):
         Card(rank='2', suit='spades')
         >>> deck[:3]
         [Card(rank='2', suit='spades'), Card(rank='3', suit='spades'), Card(rank='4', suit='spades')]
+        >>> [card.rank for card in deck[8:14]]
+        ['10', 'J', 'Q', 'K', 'A', '2']
         '''
         return self._cards[position]
 
