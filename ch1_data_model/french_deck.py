@@ -1,6 +1,6 @@
 import collections
 
-Card = collections.namedtuple('Card', ['rank', 'suit'])
+Card = collections.namedtuple('Card', 'rank suit')
 
 class FrenchDeck(object):
     ranks = list('23456789') + ['10'] + list('JQKA')
