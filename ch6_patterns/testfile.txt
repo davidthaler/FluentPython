@@ -1,0 +1,22 @@
+This is a test file for use under doctest.
+
+>>> from customer import Customer
+>>> from lineitem import LineItem
+>>> from order2 import Order
+>>> from promos import *
+>>> joe = Customer('Joe', 0)
+>>> ann = Customer('Ann', 1100)
+>>> cart = [LineItem('banana', 4, 0.5),LineItem('apple', 10, 1.5),LineItem('melon', 5, 5.0)] 
+>>> Order(joe, cart, fidelity_promo)
+<Order total: 42.00 due: 42.00>
+>>> Order(ann, cart, fidelity_promo)
+<Order total: 42.00 due: 39.90>
+>>> banana_cart = [LineItem('banana', 30, 0.5), LineItem('apple', 10, 1.5)]
+>>> Order(joe, banana_cart, bulk_item_promo)
+<Order total: 30.00 due: 28.50>
+>>> Order(joe, banana_cart, best_promo)
+<Order total: 30.00 due: 28.50>
+>>> Order(ann, cart, best_promo)
+<Order total: 42.00 due: 39.90>
+>>> Order(joe, cart, large_order_promo)
+<Order total: 42.00 due: 42.00>
