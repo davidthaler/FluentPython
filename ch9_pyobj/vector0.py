@@ -38,3 +38,7 @@ class Vector2d:
         typecode = chr(octets[0])
         memv = memoryview(octets[1:]).cast(typecode)
         return cls(*memv)
+
+    def __format__(self, fmt):
+        components = (format(c, fmt) for c in self)
+        return '<{},{}>'.format(*components)
