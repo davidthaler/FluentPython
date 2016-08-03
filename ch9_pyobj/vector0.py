@@ -17,7 +17,7 @@ class Vector2d:
     @property
     def y(self):
         return self.__y
-        
+
     def __iter__(self):
         return (i for i in (self.x, self.y))
 
@@ -60,3 +60,6 @@ class Vector2d:
             fmt_str = '({}, {})'
         components = (format(c, fmt_spec) for c in coords)
         return fmt_str.format(*components)
+
+    def __hash__(self):
+        return hash(self.x) ^ hash(self.y)
