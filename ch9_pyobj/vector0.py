@@ -39,6 +39,16 @@ class Vector2d:
         memv = memoryview(octets[1:]).cast(typecode)
         return cls(*memv)
 
-    def __format__(self, fmt):
-        components = (format(c, fmt) for c in self)
-        return '<{},{}>'.format(*components)
+    def angle(self):
+        return math.atan2(self.x, self.y)
+    
+    def __format__(self, fmt_spec):
+        if fmt_spec.endswith('p'):
+            fmt_spec = fmt_spec[:-1]
+            coords = (abs(self), self.angle())
+            fmt_str = '<{}, {}>'
+        else:
+            coords = self
+            fmt_str = '({}, {})'
+        components = (format(c, fmt_spec) for c in coords)
+        return fmt_str.format(*components)
