@@ -1,4 +1,5 @@
 # Example 12-4 from FluentPython
+# This example demonstrates the diamond pattern in multiple inheritance.
 
 class A:
     def ping(self):
