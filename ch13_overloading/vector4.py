@@ -72,6 +72,15 @@ class Vector:
     def __radd__(self, other):
         return self + other
 
+    def __mul__(self, other):
+        if isinstance(other, numbers.Real):
+            return Vector(x * other for x in self)
+        else:
+            return NotImplemented
+
+    def __rmul__(self, other):
+        return self * other
+
     @classmethod
     def frombytes(cls, octets):
         typecode = chr(octets[0])
