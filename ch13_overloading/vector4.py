@@ -48,7 +48,10 @@ class Vector:
         return functools.reduce(operator.xor, hashes, 0)
 
     def __eq__(self, other):
-        return all(a==b for a, b in itertools.zip_longest(self, other))
+        if isinstance(other, Vector):
+            return all(a==b for a, b in itertools.zip_longest(self, other))
+        else:
+            return NotImplemented
 
     def __abs__(self):
         return math.sqrt(sum(x * x for x in self))
