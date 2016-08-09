@@ -1,5 +1,5 @@
-# Example 14-5 from Fluent Python
-# This is "sentence take #3"
+# Example 14-7 from Fluent Python
+# This is "sentence take #4"
 
 import re
 import reprlib
@@ -16,5 +16,5 @@ class Sentence:
         return 'Sentence(%s)' % reprlib.repr(self.text)
 
     def __iter__(self):
-        for word in self.words:
-            yield word
+        for match in RE.finditer(self.text):
+            yield match.group()
