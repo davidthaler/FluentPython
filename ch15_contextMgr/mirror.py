@@ -1,4 +1,6 @@
 # Example 15-3 from Fluent Python
+# The explanation here is that the string "JABBERWOCKY" is the return value
+# of the __enter__ method of the context manager.
 
 class LookingGlass:
 
