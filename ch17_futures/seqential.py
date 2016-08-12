@@ -11,7 +11,7 @@ CC = ('CN IN US ID BR PK NG BD RU JP '
      'MX PH VN ET EG DE IR TR CD FR').split()
 
 BASE_URL = 'http://flupy.org/data/flags'
-DEST_DIR = '~/Downloads'
+DEST_DIR = 'downloads'
 
 def save_flag(img, filename):
     path = os.path.join(DEST_DIR, filename)
@@ -19,7 +19,7 @@ def save_flag(img, filename):
         fp.write(img)
 
 def get_flag(cc):
-    url = '{}/{cc}/{cc.gif}'.format(BASE_URL, cc=cc.lower())
+    url = '{}/{cc}/{cc}.gif'.format(BASE_URL, cc=cc.lower())
     resp = requests.get(url)
     return resp.content
 
