@@ -12,7 +12,7 @@ class Record:
         # This adds everything in **kwargs
         self.__dict__.update(kwargs)
 
-# NB: this does not open the shelf file
+# NB: this does not open the shelf file: get db with shelve.open(DB)
 def load_db(db):
     raw_data = osconload.load()
     warnings.warn('loading ' + DB)
