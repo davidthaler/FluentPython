@@ -60,3 +60,9 @@ def test_event_speakers(db):
     assert len(event.speakers) == 2
     aa = [db['speaker.3471'], db['speaker.5199']]
     assert event.speakers == aa
+
+def test_event_no_speakers(db):
+    sched.Event.set_db(db)
+    event = db['event.36848']
+    assert len(event.speakers) == 0
+    
