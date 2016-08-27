@@ -92,6 +92,7 @@ class Event(DBRecord):
             fetch = self.__class__.fetch
             self._speaker_objs = [fetch('speaker.{}'.format(key)) 
                                     for key in spkr_serials]
+        return self._speaker_objs
 
     def __repr__(self):
         if hasattr(self, 'name'):
