@@ -1,5 +1,13 @@
-# Example A-12, the test (pytest) code for example 19-9
+'''
+Example A-12, the test (pytest) code for example 19-9
 
+To run:
+
+    >>> python -m pytest
+
+...in this directory
+
+'''
 import pytest
 import shelve
 
