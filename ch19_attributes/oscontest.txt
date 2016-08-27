@@ -1,0 +1,17 @@
+This file is called oscontest.txt, it tests osconload.py.
+
+To run at cmdline:
+python -m doctest -v osconload.py
+
+In a python shell (only a python shell, not ipython):
+import doctest
+doctest.testfile('oscontest.txt', verbose=True)
+
+>>> from osconload import load
+>>> feed = load()
+>>> sorted(feed['Schedule'].keys())
+['conferences', 'events', 'speakers', 'venues']
+>>> feed['Schedule']['speakers'][-1]['name']
+'Carina C. Zona'
+>>> feed['Schedule']['events'][1]['name']
+'Refactoring 101'
