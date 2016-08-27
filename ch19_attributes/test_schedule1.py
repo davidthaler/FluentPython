@@ -5,6 +5,10 @@ To run:
 
     >>> python -m pytest
 
+or:
+
+    >>> python -m pytest test_schedule1.py
+
 ...in this directory
 
 '''
