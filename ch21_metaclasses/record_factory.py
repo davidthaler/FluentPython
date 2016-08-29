@@ -12,6 +12,16 @@ This class pretty much reimplements collections.namedtuple.
     10
     >>> breed
     'St Charles'
+    >>> luigi.__slots__
+    ('name', 'weight', 'breed')
+    >>> luigi.weight
+    10
+    >>> Dog.weight
+    <member 'weight' of 'Dog' objects>
+    >>> luigi.__class__
+    <class 'record_factory.Dog'>
+    >>> Dog.__class__
+    <class 'type'>
 '''
 
 def record_factory(cls_name, field_names):
@@ -48,7 +58,22 @@ def record_factory(cls_name, field_names):
                      __repr__  = __repr__)
 
     # see help(type)
-    # This is a constructor for a class
-    # with name of name, superclass of object( only), 
+    # type (that is class) is a type and this is its constructor
+    # It is a constructor for a class
+    # with name of cls_name, superclass of object(only), 
     # and attributes of cls_attrs
-    return type(cls_name, (object,), cls_attrs)           
+    return type(cls_name, (object,), cls_attrs)
+
+'''
+* This is the key *
+These are equivalent:
+
+class MyClass(MySuper, MyMixin):
+    x = 42
+
+    def x2(self):
+        return self.x * 2
+
+MyClass = type('MyClass', (MySuper, MyMixin), 
+                {'x': 42, 'x2': lambda self: self.x * 2})
+'''
