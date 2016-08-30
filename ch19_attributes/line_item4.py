@@ -1,7 +1,7 @@
 '''
 Example 19-23 and 19-24 of Fluent Python.
 
-# TODO: find out how to check an exception in a doctest.
+
 
 This one is tricky...
 1) `get/set_qty` are closures: `storage_name` is set in their defining scope
@@ -18,6 +18,20 @@ This one is tricky...
     6
     >>> nutmeg.price
     13.95
+    >>> nutmeg.weight =  -1
+    Traceback (most recent call last):
+        ...
+    ValueError: value must be > 0
+    >>> nutmeg.description.__class__
+    <class 'str'>
+    >>> LineItem.description.__class__
+    Traceback (most recent call last):
+        ...
+    AttributeError: type object 'LineItem' has no attribute 'description'
+    >>> nutmeg.weight.__class__
+    <class 'int'>
+    >>> LineItem.weight.__class__
+    <class 'property'>
 '''
 
 def quantity(storage_name):
@@ -45,3 +59,10 @@ class LineItem:
 
     def subtotal(self):
         return self.weight * self.price             # get through property
+
+if __name__ == '__main__':
+    import doctest
+    import sys
+    if sys.version_info.major != 3:
+        raise Exception('These doctests require python3.')
+    doctest.testmod(verbose=True)
