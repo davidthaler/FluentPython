@@ -1,0 +1,1 @@
+This folder contains snippets involving things that I learned while going through the book Fluent Python.
